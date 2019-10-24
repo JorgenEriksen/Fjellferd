@@ -1,0 +1,23 @@
+<% include partials/header %>
+
+<div id="front-container" class="fix-height">
+        <!-- evt. feilmelding -->
+        <% if(suksess && suksess.length > 0){ %>
+            <div class="melding suksess"><%= suksess %></div>
+            <% } %>
+            <% if(error && error.length > 0){ %>
+            <div class="melding error"><%= error %></div>
+            <% } %>
+
+    <div id="front-text">
+        <h1>Fjellferd</h1>
+        <p>Dette er det første fullstendige prosjektet jeg har laget med NodeJS, ExpressJS, MongoDB og EJS. Fjellferd går ut på at man kan registrere seg en bruker, legge inn fjellturer og lese andre sine fjellturer, samtidig som man kan kommentere de. Alt man legger til på siden, kan brukeren selv endre eller slette.</p>
+    </div>
+    <a href="/turer" class="standard-knapp">Se alle turene</a>
+
+</div>
+
+
+
+<!-- trenger ikke skrive .ejs -->
+<% include partials/footer %>

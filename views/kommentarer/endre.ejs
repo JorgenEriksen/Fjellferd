@@ -1,0 +1,21 @@
+<% include ../partials/header %>
+
+<div class="page-container fix-height" >
+    <div id="standard-box">
+        <h1>Endre kommentar for <%= tur.navn %> </h1>
+
+        <form action="/turer/<%= tur._id %>/kommentarer/<%= kommentar._id %>?_method=PUT" method="POST" id="standard-form">
+            <input type="text" name="kommentar[tekst]" placeholder="tekst" value="<%= kommentar.tekst %>">
+            <button>Endre</button>
+        </form>
+        <div id="tilbake">
+                <button onclick="goBack()">Tilbake</button>
+            </div>
+
+        
+    </div>
+
+
+</div>
+
+<% include ../partials/footer %>

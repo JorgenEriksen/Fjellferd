@@ -1,0 +1,34 @@
+<% include ../partials/header.ejs %>
+
+<div class="page-container fix-height">
+            <!-- evt. feilmelding -->
+            <% if(suksess && suksess.length > 0){ %>
+                <div class="melding suksess"><%= suksess %></div>
+                <% } %>
+                <% if(error && error.length > 0){ %>
+                <div class="melding error"><%= error %></div>
+                <% } %>
+    <div id="turer-header">
+        <h1>Fjellturene</h1>
+        <p>Se utvalget av fjellturene i listen under.</p>
+        <a class="legg-til-knapp " href="/turer/legg-til">Legg til tur</a>
+       
+    </div>
+
+
+    <div class="turer-container">
+    <% turer.forEach(e=>{ %>
+    <div class="tur-container">
+        <div class="tur-bilde" style="background-image: url('<%= e.bilde %>')";></div> 
+        
+        <h4><%= e.navn %></h4>
+        <a class="standard-knapp" href="/turer/<%= e.id %>">Mer info!</a>
+    </div>
+    <% }) %>
+</div>
+
+
+
+</div>
+
+<% include ../partials/footer.ejs %>

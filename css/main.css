@@ -1,0 +1,338 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+body{
+   margin: 0;
+   background: rgba(176, 165, 137, 0.5);
+}
+
+.melding{
+    font-size: 1.2em;
+    height: 40px;
+    line-height: 40px;
+    margin: 10px auto 0px auto;
+    max-width: 65%;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+}
+
+.suksess{
+    background-color: rgba(58, 193, 98, 0.4)
+}
+
+.error{
+    background-color: rgba(247, 117, 117, 0.4);
+}
+
+h1 {
+    margin: 0;
+    padding-top: 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.tittel{
+    color: #3ac162;
+    
+}
+
+.fjern-margin{
+    margin: 0;
+}
+
+.page-container {
+    width: 65%;
+    padding-top: 30px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.fix-height{
+    min-height: calc(100vh - 110px);
+}
+
+/* landingssiden */
+
+#front-container{
+    background: url("/assets/img/background1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; 
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#front-text{
+    padding-top: 10%;
+    width: 50%;
+    text-align: center;
+    text-shadow: 2px 2px 3px gray, 
+    6px 6px 12px rgba(200, 200, 200, 0.8), 
+    12px 12px 24px 
+    rgba(200, 200, 200, 0.6);
+}
+
+
+#front-text h1{
+    font-size: 5.0em;
+}
+
+#front-text p{
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+
+/* turer siden */
+
+
+.turer-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding-bottom: 100px;
+
+}
+
+#turer-header{
+    padding-bottom: 50px;
+}
+
+
+
+.tur-container {
+    margin: 40px 5px;
+    padding-bottom: 10px;
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.5);
+    border-radius: 5%;
+    
+    width: 300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tur-bilde {
+    /* Gjør bildene mindre når man */
+    width: 100%;
+    height: 300px;
+    border-radius: 5% 5% 0 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.tur-container h4 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.standard-knapp{
+    font-size: 16px;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #71C0B1;
+}
+.standard-knapp:hover{
+    opacity: 0.8;
+}
+
+.slett-knapp{
+    display: inline;
+}
+.slett-knapp button{
+    background-color: rgb(255, 85, 85);
+}
+
+.endre-knapp{
+    background-color: orange;
+}
+
+.liten-knapp{
+    padding: 4px;
+}
+
+
+
+/* Turinfo siden */
+
+#turinfo-container{
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 20px 40px 0 40px;
+    padding: 0 80px 0 80px;
+
+}
+
+#turinfo-main{
+    flex-grow: 1;
+}
+
+#turinfo-info, #kommentar-container{
+    
+    border: 1px solid lightgray;
+    border-radius: 10px;
+     /* border: 1px solid black; */
+}
+
+#turinfo-info #main-img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 500px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;  
+}
+
+#turinfo-tekst{
+    padding: 0 10px 0 10px;
+}
+
+#tur-beskrivelse{
+    margin-top: 10px;
+}
+
+#turinfo-tekst svg{
+    display: inline;
+}
+
+.space-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+#turinfo-sidebar{
+    margin-right: 20px;
+    min-width: 300px;
+    /* border: 1px solid black; */
+}
+
+#map {
+    margin-top: 20px;
+    height: 400px;
+    width: 100%;
+}
+
+#kommentar-container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #e5e5e5;
+    padding: 10px;
+}
+
+.kommentar{
+    margin-bottom: 15px;
+}
+
+
+/* Standard skjemabox */
+
+#standard-box{ 
+    background: #e5e5e5;
+    width: 600px;
+    border-radius: 15px;
+    margin: 0 auto 10px auto;
+    padding: 5px 0px 20px 0px;
+}
+
+#standard-form{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    margin: 0 auto;
+}
+
+#standard-form input{
+    height: 30px;
+    border-radius: 5px;
+    background: #e8eeef;
+    border: none;
+    padding: 4px 8px;
+    margin: 5px 0px 20px 0px;
+    font-size: 1.2rem;
+}
+
+#standard-form button{
+    padding: 19px 39px 18px 39px;
+    margin-bottom: 10px;
+    color: #FFF;
+    background-color: #4bc970;
+    border: 1px solid #3ac162;
+    border-radius: 5px;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+#tilbake{
+    width: 350px;
+    margin: 0 auto; 
+}
+
+#tilbake button{
+border: none;
+background: none;
+text-decoration: underline;
+font-size: 16px;
+}
+#tilbake button:hover{
+    cursor: pointer;
+}
+
+
+
+
+footer{
+    background: #404040;
+    padding: 16px;
+}
+
+footer p{
+    text-align: center;
+    color: rgb(212, 207, 207);
+    margin: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+    .tur-container {
+        width: 100%;
+        
+    }
+    .turer-container {
+        width: 93%;
+    }
+
+    #turinfo-container{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #turinfo-sidebar{
+        margin-right: 0px;
+    }
+
+    #map{
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+
+
+}
+
+

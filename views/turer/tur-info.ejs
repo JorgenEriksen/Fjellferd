@@ -1,0 +1,122 @@
+<% include ../partials/header.ejs %>
+
+<!-- evt. feilmelding -->
+<% if(suksess && suksess.length > 0){ %>
+<div class="melding suksess"><%= suksess %></div>
+<% } %>
+<% if(error && error.length > 0){ %>
+<div class="melding error"><%= error %></div>
+<% } %>
+
+<div id="turinfo-container" class="fix-height">
+
+    <div id="turinfo-main">
+        <div id="turinfo-info">
+
+            <!-- banner bildet -->
+            <div id="main-img" style="background-image: url(<%=tur.bilde%>)">
+
+            </div>
+
+
+            <!-- tekst -->
+            <div id="turinfo-tekst">
+
+                <div class="space-between">
+                    <h2 class="tittel"><%= tur.navn %></h2>
+                    <p><strong><%= tur.lengde %>
+                        <% if(tur.lengde == 1) { %>
+                            time
+                        <% } else { %>
+                            timer
+                        <% } %>
+                        / tur-retur
+                    </strong></p>
+
+
+                </div>
+
+                <p id="tur-beskrivelse"><%= tur.beskrivelse %></p>
+
+
+                <% if(bruker && tur.forfatter.id.equals(bruker._id)){ // hvis innlogget bruker er "forfatteren" av turen %>
+                <a class="standard-knapp endre-knapp" href="/turer/<%= tur._id %>/endre">Endre tur</a>
+
+                <form class="slett-knapp" action="/turer/<%= tur._id %>?_method=DELETE" method="POST">
+                    <button class="standard-knapp">Slett tur</button>
+                </form>
+                <% } %>
+
+                <p><i>sendt inn av <%= tur.forfatter.brukernavn %></i> </p>
+
+            </div>
+        </div>
+
+        <div id="kommentar-container">
+            <p><a class="standard-knapp" href="/turer/<%= tur._id %>/kommentarer/legg-til">Legg til kommentar</a></p>
+            <hr>
+
+            <% tur.kommentarer.forEach(kommentar=>{ %>
+            <div class="kommentar">
+                <div class="space-between">
+                    <span><strong><%= kommentar.forfatter.brukernavn %></strong></span>
+                    <span>10 dager siden</span>
+                </div>
+                <div>
+                    <p class="fjern-margin"><%= kommentar.tekst %> </p>
+                    <% if(bruker && kommentar.forfatter.id.equals(bruker._id)){ // hvis innlogget bruker er "forfatteren" av turen %>
+                    <a class="standard-knapp endre-knapp liten-knapp"
+                        href="/turer/<%= tur._id %>/kommentarer/<%= kommentar._id %>/endre">Endre</a>
+                    <form class="slett-knapp"
+                        action="/turer/<%= tur._id %>/kommentarer/<%= kommentar._id %>?_method=DELETE" method="POST">
+                        <button class="standard-knapp liten-knapp">Slett</button>
+                    </form>
+                    <% } %>
+
+                </div>
+            </div>
+            <% }) %>
+
+        </div>
+
+    </div>
+    <div id="turinfo-sidebar">
+
+        <div id="map"></div>
+    </div>
+
+</div>
+
+<script>
+        function initMap() {
+          var lat = <%= tur.lat %>;
+          var lng = <%= tur.lng %>;
+          var center = {lat: lat, lng: lng };
+          var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 8,
+              center: center,
+              scrollwheel: false
+          });
+          var contentString = `
+            <strong><%= tur.navn %><br />
+            <%= tur.location %></strong>
+            <p><%= tur.beskrivelse %></p>
+          `
+          var infowindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+          var marker = new google.maps.Marker({
+              position: center,
+              map: map
+          });
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+        }
+      </script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-17Affja4f4Xo6KMyRnH1UQKvAZtyjvg&callback=initMap"></script>
+
+      <style>
+
+      </style>
+<% include ../partials/footer.ejs %>

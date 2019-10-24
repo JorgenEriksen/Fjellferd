@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+<div class="page-container fix-height">
+    <div id="standard-box">
+        <h1>Endre <%= tur.navn %></h1>
+
+        <form action="/turer/<%= tur._id %>/?_method=PUT" method="POST" id="standard-form">
+            <label for="navn">Navn:</label>
+            <input type="text" name="tur[navn]" placeholder="navn på turen" value="<%= tur.navn %>">
+            <label for="navn">Antall timer:</label>
+            <input type="number" name="tur[lengde]" value="<%= tur.lengde %>" min="1" step="1" placeholder="totalt tur/retur">
+            <label for="beskrivelse">Beskrivelse:</label>
+            <input type="text" name="tur[beskrivelse]" placeholder="beskrivelse av turen" value="<%= tur.beskrivelse %>">
+            <label for="location">Område:</label>
+            <input type="text" name="tur[location]" placeholder="hvor" value="<%= tur.location %>">
+            <button>Endre</button>
+            
+        </form>
+        <div id="tilbake">
+                <button onclick="goBack()">Tilbake</button>
+            </div>
+
+        
+    </div>
+
+
+</div>
+
+<% include ../partials/footer %>

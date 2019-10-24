@@ -1,0 +1,30 @@
+<% include ./partials/header %>
+
+
+
+
+<div class="page-container fix-height">
+    <div id="standard-box">
+        <!-- evt. feilmelding -->
+            <% if(suksess && suksess.length > 0){ %>
+                <div class="melding suksess"><%= suksess %></div>
+                <% } %>
+                <% if(error && error.length > 0){ %>
+                <div class="melding error"><%= error %></div>
+                <% } %>
+
+        <h1>Logg inn</h1>
+        <form action="/logg-inn" method="POST" id="standard-form">
+            <input type="text" name="username" placeholder="brukernavn">
+            <input type="text" name="password" placeholder="passord">
+            <button>Logg inn</button>
+        </form>
+        <div id="tilbake">
+            <button onclick="goBack()">Tilbake</button>
+        </div>
+
+    </div>
+
+</div>
+
+<% include ./partials/footer.ejs %>

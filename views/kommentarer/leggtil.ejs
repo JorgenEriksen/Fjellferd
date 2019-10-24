@@ -1,0 +1,21 @@
+<% include ../partials/header %>
+
+<div class="page-container">
+    <div id="standard-box">
+        <h1>Legg til ny kommentar for <%= tur.navn %> </h1>
+
+        <form action="/turer/<%= tur._id %>/kommentarer" method="POST" id="standard-form">
+            <input type="text" name="kommentar[tekst]" placeholder="tekst">
+            <button>Legg til</button>
+        </form>
+        <div id="tilbake">
+                <button onclick="goBack()">Tilbake</button>
+            </div>
+
+        
+    </div>
+
+
+</div>
+
+<% include ../partials/footer %>

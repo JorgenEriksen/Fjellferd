@@ -1,0 +1,30 @@
+<% include ../partials/header %>
+
+<div class="page-container fix-height">
+    <div id="standard-box">
+        <h1>Legg til en ny fjelltur</h1>
+
+        <form action="/turer" method="POST" id="standard-form" enctype="multipart/form-data">
+            <label for="navn">Navn:</label>
+            <input type="text" name="navn" placeholder="navn på turen" required>
+            <label for="navn">Antall timer:</label>
+            <input type="number" name="lengde" min="1" step="1" placeholder="totalt tur/retur" required> 
+            <label for="bilde">Bilde:</label>
+            <input type="file" name="bilde" accept="image/*" required>
+            <label for="beskrivelse">Beskrivelse:</label>
+            <input type="text" name="beskrivelse" placeholder="beskrivelse av turen" required>
+            <label for="location">Område:</label>
+            <input type="text" name="location" id="location" placeholder="galdhøpiggen">
+            <button>Legg til</button>
+        </form>
+        <div id="tilbake">
+                <button onclick="goBack()">Tilbake</button>
+            </div>
+
+        
+    </div>
+
+
+</div>
+
+<% include ../partials/footer %>
